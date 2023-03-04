@@ -16,21 +16,10 @@ import io.ktor.server.request.*
 fun Application.authRoutes(userService: UserService) {
     routing {
         route("/auth") {
-
-            get() {
-                val name = call.parameters["name"]?.toString()
-                if (name == null) {
-                    call.respondText("Missing or malformed id")
-                    return@get
-                }
-                val response = userService.findUserByName(name)
-                if (response == null) {
-                    call.respondText("No user with id $name")
-                    return@get
-                }
-                call.respond(response.toString())
-            }
-
+            /**
+             * POST /auth/register
+             * Register a new user
+             */
             post("/register") {
                 val params = call.receive<CreateUserParams>()
                 val response = userService.registerUser(params)

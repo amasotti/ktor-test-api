@@ -1,8 +1,7 @@
-# Ktor API - A sample Ktor API
+# Ktor API - A sample API
 
-Sample project, just to show how to use Ktor with a simple API.
-The API has 1-2 GET endpoints which just print Hello World and 
-or retrieve a User from a database (Postgres) and a POST endpoint
+Sample project, just to show how to use Ktor to build a very simple API.
+The API has 1-2 GET endpoints which just print Hello World and or retrieve a User from a database (Postgres) and a POST endpoint
 which creates a new User in the database.
 
 

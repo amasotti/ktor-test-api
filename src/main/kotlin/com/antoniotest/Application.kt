@@ -4,8 +4,9 @@ import com.antoniotest.db.DatabaseFactory
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import com.antoniotest.plugins.*
 import com.antoniotest.routes.authRoutes
+import com.antoniotest.routes.testRoutes
+import com.antoniotest.routes.userRoutes
 import com.antoniotest.service.UserService
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.jackson.*
@@ -21,6 +22,7 @@ fun Application.module() {
         jackson()
     }
     val UserService = UserService()
-    configureRouting()
-    authRoutes(UserService)
+    testRoutes() // Test routes: GET /antonio, GET / (Hello World!)
+    authRoutes(UserService) // Auth routes: POST /auth/register
+    userRoutes(UserService) // User routes: GET /user/{name}
 }
